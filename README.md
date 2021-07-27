@@ -10,3 +10,12 @@ ADMIN:
 6. show medicines.
 7. add medicine.
 8. update medicine.
+
+DOCTOR:
+
+1. add prescription.
+2. show prescriptions.
+
+USER:
+
+1. show prescriptions.
