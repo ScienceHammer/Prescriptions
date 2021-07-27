@@ -18,7 +18,7 @@ public class AdminController {
 	
 	@PostMapping("/addMedicine")
 	public Medicine addMedicine(@RequestBody Medicine medicine) {
-		return adminService.addMedicine(medicine);
+		return adminService.addMedicine(medicine); 
 	}
 
 }
