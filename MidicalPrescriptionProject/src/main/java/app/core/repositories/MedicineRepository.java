@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import app.core.entities.Medicine;
 
-public interface MedicineRepository extends JpaRepository<Medicine, Integer> {
+public interface MedicineRepository extends JpaRepository<Medicine, Long> {
 
 }
