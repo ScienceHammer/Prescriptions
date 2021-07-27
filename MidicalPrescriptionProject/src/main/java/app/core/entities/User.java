@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import app.core.enums.Roles;
+
 @Entity
 public class User {
 
