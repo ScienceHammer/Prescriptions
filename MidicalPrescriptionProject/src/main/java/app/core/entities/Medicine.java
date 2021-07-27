@@ -1,7 +1,5 @@
 package app.core.entities;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,8 +12,6 @@ public class Medicine {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private List<String> tradesNames;
-	private List<String> belongsToGroups;
 	private MedicineWayOfTaking medWayOfTaking;
 	private MedicineDurations duration;
 	private Integer dosAmount;
@@ -36,22 +32,6 @@ public class Medicine {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public List<String> getTradesNames() {
-		return tradesNames;
-	}
-
-	public void setTradesNames(List<String> tradesNames) {
-		this.tradesNames = tradesNames;
-	}
-
-	public List<String> getBelongsToGroups() {
-		return belongsToGroups;
-	}
-
-	public void setBelongsToGroups(List<String> belongsToGroups) {
-		this.belongsToGroups = belongsToGroups;
 	}
 
 	public MedicineWayOfTaking getMedWayOfTaking() {

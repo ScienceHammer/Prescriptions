@@ -23,6 +23,8 @@ public class Prescription {
 	private List<Medicine> medicines;
 	@ManyToOne
 	private User patientUser;
+	@ManyToOne
+	private UnregisteredPatient unregisteredPatient;
 	private Date issuiedDate;
 
 	public Long getId() {
@@ -63,6 +65,14 @@ public class Prescription {
 
 	public void setPatientUser(User patientUser) {
 		this.patientUser = patientUser;
+	}
+
+	public UnregisteredPatient getUnregisteredPatient() {
+		return unregisteredPatient;
+	}
+
+	public void setUnregisteredPatient(UnregisteredPatient unregisteredPatient) {
+		this.unregisteredPatient = unregisteredPatient;
 	}
 
 	public Date getIssuiedDate() {

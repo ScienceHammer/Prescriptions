@@ -9,16 +9,19 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Doctor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@OneToOne
-	private User doctorUser;
 	private Integer liscenceNumber;
 	private String medicAdress;
+	@OneToOne
+	private User userDetails;
+	@JsonIgnore
 	@OneToMany
 	private List<Prescription> prescriptions;
 
@@ -28,14 +31,6 @@ public class Doctor {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public User getDoctorUser() {
-		return doctorUser;
-	}
-
-	public void setDoctorUser(User doctorUser) {
-		this.doctorUser = doctorUser;
 	}
 
 	public Integer getLiscenceNumber() {

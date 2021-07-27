@@ -2,6 +2,6 @@ package app.core.entities;
 
 public enum MedicineDurations {
 	
-	DAY, TWODAYS, WEEK, MONTH 
+	EIGHTHOURS ,DAY, WEEK, MONTH 
 
 }

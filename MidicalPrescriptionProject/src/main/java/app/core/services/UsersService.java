@@ -6,20 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import app.core.repositories.DoctorRepository;
-import app.core.repositories.PrescriptionRepository;
+import app.core.entities.User;
+import app.core.repositories.UserRepository;
 
 @Service
 @Transactional
 @Scope("prototype")
-public class DoctorService {
+public class UsersService {
 	
 	@Autowired
-	private DoctorRepository doctorRepository;
+	private UserRepository userRepository;
 	
-	@Autowired
-	private PrescriptionRepository prescriptionRepository;
 	
-
+	public User addUser(User user) {
+		
+		return userRepository.save(user);
+		
+	}
+	
+	
+	
+	
 
 }

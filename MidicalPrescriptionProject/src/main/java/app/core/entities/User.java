@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
 
@@ -19,10 +21,12 @@ public class User {
 	private Integer phoneNumber;
 	private String username;
 	private String password;
-	private String role;
+	@JsonIgnore
+	private Roles role;
 	private String email;
 	private String address;
 	private Date birthDay;
+	@JsonIgnore
 	@OneToMany
 	private List<Prescription> userPrescriptions;
 
@@ -66,11 +70,11 @@ public class User {
 		this.password = password;
 	}
 
-	public String getRole() {
+	public Roles getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Roles role) {
 		this.role = role;
 	}
 
