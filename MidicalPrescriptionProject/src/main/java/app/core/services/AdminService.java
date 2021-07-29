@@ -8,10 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.core.entities.Medicine;
-import app.core.entities.UnregisteredPatient;
 import app.core.entities.User;
 import app.core.repositories.MedicineRepository;
-import app.core.repositories.UnregisteredPatientRepository;
 import app.core.repositories.UserRepository;
 
 @Service
@@ -23,9 +21,6 @@ public class AdminService {
 
 	@Autowired
 	private MedicineRepository medicineRepository;
-
-	@Autowired
-	private UnregisteredPatientRepository unregisteredPatientRepository;
 
 	public Medicine addMedicine(Medicine medicine) {
 		return medicineRepository.save(medicine);
@@ -47,10 +42,6 @@ public class AdminService {
 	public String deleteUser(Long userId) {
 		userRepository.deleteById(userId);
 		return "User with id " + userId + " is deleted!";
-	}
-
-	public List<UnregisteredPatient> getAllUnregisteredPatients() {
-		return unregisteredPatientRepository.findAll();
 	}
 
 }

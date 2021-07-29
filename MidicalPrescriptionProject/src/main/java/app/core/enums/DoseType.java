@@ -1,5 +1,5 @@
 package app.core.enums;
 
-public enum MedicineWayOfTaking {
+public enum DoseType {
 	TABS, CAPS, SUSPENTION, DROPS, INJECTIONS 
 }

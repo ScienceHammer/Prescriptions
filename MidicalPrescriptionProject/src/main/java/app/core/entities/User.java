@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,6 +26,8 @@ public class User {
 	private String password;
 	@JsonIgnore
 	private Roles role;
+	@OneToOne
+	private Doctor doctor;
 	private String email;
 	private String address;
 	private Date birthDay;

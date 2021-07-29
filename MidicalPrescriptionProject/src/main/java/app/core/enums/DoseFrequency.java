@@ -1,6 +1,6 @@
 package app.core.enums;
 
-public enum MedicineDurations {
+public enum DoseFrequency {
 	
 	EIGHTHOURS ,DAY, WEEK, MONTH 
 
