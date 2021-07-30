@@ -3,7 +3,9 @@ package app.core.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,9 +27,8 @@ public class User {
 	private Integer phoneNumber;
 	private String username;
 	private String password;
-	@JsonIgnore
 	private Roles role;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Doctor doctor;
 	private String email;
 	private String firsName;
@@ -36,8 +37,9 @@ public class User {
 	private Date birthDay;
 	private String address;
 	@JsonIgnore
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Prescription> userPrescriptions;
+	private boolean active;
 
 	public Long getId() {
 		return id;
@@ -118,5 +120,55 @@ public class User {
 	public void setUserPrescriptions(List<Prescription> userPrescriptions) {
 		this.userPrescriptions = userPrescriptions;
 	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
+
+	public String getFirsName() {
+		return firsName;
+	}
+
+	public void setFirsName(String firsName) {
+		this.firsName = firsName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userIdNumber=" + userIdNumber + ", phoneNumber=" + phoneNumber + ", username="
+				+ username + ", password=" + password + ", role=" + role + ", doctor=" + doctor + ", email=" + email
+				+ ", firsName=" + firsName + ", lastName=" + lastName + ", gender=" + gender + ", birthDay=" + birthDay
+				+ ", address=" + address + ", userPrescriptions=" + userPrescriptions + ", active=" + active + "]";
+	}
+	
+	
 
 }

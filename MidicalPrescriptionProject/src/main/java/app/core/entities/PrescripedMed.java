@@ -1,13 +1,16 @@
 package app.core.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import app.core.enums.DoseFrequency;
 import app.core.enums.DoseType;
 import app.core.enums.Units;
 
+@Entity
 public class PrescripedMed {
 
 	@Id
@@ -21,6 +24,8 @@ public class PrescripedMed {
 	private Units dosageUnit;
 	private DoseFrequency frequency;
 	private Integer numberOfTakingDays;
+	@ManyToOne
+	private Prescription prescription;
 
 	public Long getId() {
 		return id;
@@ -93,5 +98,15 @@ public class PrescripedMed {
 	public void setNumberOfTakingDays(Integer numberOfTakingDays) {
 		this.numberOfTakingDays = numberOfTakingDays;
 	}
+
+	public Prescription getPrescription() {
+		return prescription;
+	}
+
+	public void setPrescription(Prescription prescription) {
+		this.prescription = prescription;
+	}
+	
+	
 
 }

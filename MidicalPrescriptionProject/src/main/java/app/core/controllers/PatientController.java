@@ -1,5 +1,7 @@
 package app.core.controllers;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/patient")
 public class PatientController {
 	
-	public String welcom() {
-		return "welcome from patient";
+	@GetMapping("/hello")
+	public String home(@RequestHeader String Authorization) {
+		return ("<h1>Patient</h1>");
 	}
 
 }

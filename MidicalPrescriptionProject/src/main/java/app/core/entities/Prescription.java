@@ -9,10 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import app.core.enums.DoseFrequency;
-import app.core.enums.DoseType;
 import app.core.enums.Gender;
-import app.core.enums.Units;
 
 @Entity
 public class Prescription {
@@ -25,8 +22,8 @@ public class Prescription {
 	private Integer doctorLiscenceNumber;
 	private String medicAdress;
 	private String reason;
-//	@OneToMany
-//	private List<PrescripedMed> prescripedMeds;
+	@OneToMany
+	private List<PrescripedMed> prescripedMeds;
 	private Integer patientIdNumber;
 	private Integer patientPhoneNumber;
 	private String patientName;
@@ -82,13 +79,13 @@ public class Prescription {
 		this.reason = reason;
 	}
 
-//	public List<PrescripedMed> getPrescripedMeds() {
-//		return prescripedMeds;
-//	}
-//
-//	public void setPrescripedMeds(List<PrescripedMed> prescripedMeds) {
-//		this.prescripedMeds = prescripedMeds;
-//	}
+	public List<PrescripedMed> getPrescripedMeds() {
+		return prescripedMeds;
+	}
+
+	public void setPrescripedMeds(List<PrescripedMed> prescripedMeds) {
+		this.prescripedMeds = prescripedMeds;
+	}
 
 	public Integer getPatientIdNumber() {
 		return patientIdNumber;

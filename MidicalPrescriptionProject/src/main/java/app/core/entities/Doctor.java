@@ -1,15 +1,9 @@
 package app.core.entities;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Doctor {
@@ -19,11 +13,7 @@ public class Doctor {
 	private Long id;
 	private Integer liscenceNumber;
 	private String medicAdress;
-	@OneToOne
-	private User userDetails;
-	@JsonIgnore
-	@OneToMany
-	private List<Prescription> prescriptions;
+
 
 	public Long getId() {
 		return id;
@@ -49,12 +39,6 @@ public class Doctor {
 		this.medicAdress = medicAdress;
 	}
 
-	public List<Prescription> getPrescriptions() {
-		return prescriptions;
-	}
 
-	public void setPrescriptions(List<Prescription> prescriptions) {
-		this.prescriptions = prescriptions;
-	}
 
 }
