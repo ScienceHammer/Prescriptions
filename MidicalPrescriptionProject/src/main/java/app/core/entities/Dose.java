@@ -1,9 +1,12 @@
 package app.core.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import app.core.enums.DoseFrequency;
 import app.core.enums.DoseType;
@@ -21,6 +24,9 @@ public class Dose {
 	private Units dosageUnit;
 	private DoseFrequency frequency;
 	private Integer numberOfTakingDays;
+	@ManyToMany
+	private List<Medicine> medicines;
+
 
 	public Long getId() {
 		return id;

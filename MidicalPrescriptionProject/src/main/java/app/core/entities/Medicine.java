@@ -8,9 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import app.core.enums.DoseFrequency;
-import app.core.enums.DoseType;
-
 @Entity
 public class Medicine {
 
