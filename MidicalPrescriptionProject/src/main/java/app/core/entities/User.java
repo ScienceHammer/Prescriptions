@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import app.core.enums.Gender;
 import app.core.enums.Roles;
 
 @Entity
@@ -29,8 +30,11 @@ public class User {
 	@OneToOne
 	private Doctor doctor;
 	private String email;
-	private String address;
+	private String firsName;
+	private String lastName;
+	private Gender gender;
 	private Date birthDay;
+	private String address;
 	@JsonIgnore
 	@OneToMany
 	private List<Prescription> userPrescriptions;
