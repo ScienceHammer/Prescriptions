@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Doctor {
@@ -15,6 +16,8 @@ public class Doctor {
 	@Column(unique = true)
 	private Integer liscenceNumber;
 	private String medicAdress;
+	@OneToOne
+	private User doctorUser;
 
 
 	public Long getId() {
@@ -39,6 +42,14 @@ public class Doctor {
 
 	public void setMedicAdress(String medicAdress) {
 		this.medicAdress = medicAdress;
+	}
+
+	public User getDoctorUser() {
+		return doctorUser;
+	}
+
+	public void setDoctorUser(User doctorUser) {
+		this.doctorUser = doctorUser;
 	}
 
 

@@ -18,7 +18,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import app.core.entities.User;
-import app.core.services.UserService;
+import app.core.services.UserAuthService;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
@@ -26,7 +26,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	private JwtTokenProvider tokenProvider;
 
 	@Autowired
-	private UserService customeUserDetailsService;
+	private UserAuthService customeUserDetailsService;
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -37,8 +37,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 			if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
 				Long userId = tokenProvider.getUserIdFromJWT(jwt);
 				User user = customeUserDetailsService.loadUserById(userId);
-				System.out.println(jwt);
-				System.out.println(customeUserDetailsService.loadUserById(userId).toString());
 				UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
 						user, null, Arrays.stream(user.getRole().toString().split(",")).map(SimpleGrantedAuthority::new)
 						.collect(Collectors.toList()));

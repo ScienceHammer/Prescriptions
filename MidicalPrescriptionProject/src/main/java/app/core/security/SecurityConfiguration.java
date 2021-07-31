@@ -12,13 +12,13 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import app.core.services.UserService;
+import app.core.services.UserAuthService;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private UserService customUserDetailsService;
+	private UserAuthService customUserDetailsService;
 	
 	@Autowired
 	private JwtAuthenticationEntryPiont unathorizedHandler;
