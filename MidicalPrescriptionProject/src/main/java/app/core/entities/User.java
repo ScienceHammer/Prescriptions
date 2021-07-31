@@ -39,6 +39,8 @@ public class User {
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Prescription> userPrescriptions;
+	@OneToMany
+	private List<Mail> mails;
 	private boolean active;
 
 	public Long getId() {
