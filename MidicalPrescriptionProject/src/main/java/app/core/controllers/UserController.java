@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import app.core.entities.User;
 import app.core.security.JwtTokenProvider;
 import app.core.security.SecurityConstrains;
-import app.core.services.CustomeUserDetailsService;
+import app.core.services.UserService;
 
 @RestController
 @RequestMapping("/api/auth")
-public class UsersController {
+public class UserController {
 	
 	@Autowired
-	private CustomeUserDetailsService customeUserDetailsService;
+	private UserService customeUserDetailsService;
 	
 	@Autowired
 	private AuthenticationManager authenticationManager;

@@ -17,7 +17,7 @@ import app.core.repositories.UserRepository;
 
 @Service
 @Transactional
-public class CustomeUserDetailsService implements UserDetailsService {
+public class UserService implements UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;

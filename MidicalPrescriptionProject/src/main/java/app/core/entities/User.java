@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,13 +24,16 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(unique = true)
 	private Integer userIdNumber;
 	private Integer phoneNumber;
+	@Column(unique = true)
 	private String username;
 	private String password;
 	private Roles role;
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Doctor doctor;
+	@Column(unique = true)
 	private String email;
 	private String firsName;
 	private String lastName;
