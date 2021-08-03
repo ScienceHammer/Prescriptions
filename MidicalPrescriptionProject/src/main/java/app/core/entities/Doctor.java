@@ -1,10 +1,14 @@
 package app.core.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,9 +20,6 @@ public class Doctor {
 	@Column(unique = true)
 	private Integer liscenceNumber;
 	private String medicAdress;
-	@OneToOne
-	private User doctorUser;
-
 
 	public Long getId() {
 		return id;
@@ -43,15 +44,5 @@ public class Doctor {
 	public void setMedicAdress(String medicAdress) {
 		this.medicAdress = medicAdress;
 	}
-
-	public User getDoctorUser() {
-		return doctorUser;
-	}
-
-	public void setDoctorUser(User doctorUser) {
-		this.doctorUser = doctorUser;
-	}
-
-
 
 }

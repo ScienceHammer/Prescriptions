@@ -26,10 +26,9 @@ public class UserService {
 	@Autowired
 	private MailRepository mailRepository;
 	
-	private User user;
-	
-	public List<Prescription> getAllPrescriptions () {
-		return prescriptionRepository.findByPatientId(user.getId());
+	public List<Prescription> getAllPrescriptions (Long userId) {
+		return prescriptionRepository.findByPatientId(userId);
 	}
+	
 
 }

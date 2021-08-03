@@ -41,7 +41,7 @@ public class User {
 	private Date birthDay;
 	private String address;
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Prescription> userPrescriptions;
 	@OneToMany
 	private List<Mail> mails;

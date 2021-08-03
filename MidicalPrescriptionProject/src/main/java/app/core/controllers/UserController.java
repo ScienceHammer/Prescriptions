@@ -1,18 +1,28 @@
 package app.core.controllers;
 
 import java.security.Principal;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import app.core.entities.Prescription;
 import app.core.entities.User;
+import app.core.services.UserService;
 
 @RestController
 @RequestMapping("/api/patient")
 public class UserController {
+
+	@Autowired
+	private UserService userService;
 
 	@GetMapping("/hello")
 	public String home(@RequestHeader String Authorization) {
@@ -20,12 +30,10 @@ public class UserController {
 	}
 
 	@GetMapping("/getAllPrescription")
-	public String getAllPrescription(@RequestHeader String Authorization, Authentication  authentication) {
-
+	public List<Prescription> getAllPrescription(@RequestHeader String Authorization, Authentication authentication) {
 		User user = (User) authentication.getPrincipal();
-		System.out.println(user.getDoctor().getLiscenceNumber());
-		return  authentication.getName();
-
+		return userService.getAllPrescriptions(user.getId());
 	}
+
 
 }
