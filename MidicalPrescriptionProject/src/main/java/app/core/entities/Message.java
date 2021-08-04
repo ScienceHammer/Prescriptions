@@ -20,6 +20,10 @@ public class Message {
 	private Date issuedDate;
 	@ManyToOne
 	private Mail mail;
+	
+	public Message() {
+		this.issuedDate = new Date(System.currentTimeMillis());
+	}
 
 	public Long getId() {
 		return id;

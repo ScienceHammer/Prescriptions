@@ -19,7 +19,7 @@ public class Prescription {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@ManyToOne
-	private Doctor doctor;
+	private User doctor;
 	@ManyToOne
 	private User patient;
 	private String doctorName;
@@ -140,11 +140,11 @@ public class Prescription {
 		this.patientAddress = patientAddress;
 	}
 
-	public Doctor getDoctor() {
+	public User getDoctor() {
 		return doctor;
 	}
 
-	public void setDoctor(Doctor doctor) {
+	public void setDoctor(User doctor) {
 		this.doctor = doctor;
 	}
 

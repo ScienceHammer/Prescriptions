@@ -1,7 +1,9 @@
 package app.core.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +20,7 @@ public class Mail {
 	private String subject;
 	@ManyToOne
 	private User sender;
-	@OneToMany
+	@OneToMany (cascade = CascadeType.ALL)
 	private List<Message> messages;
 	@ManyToOne
 	private User receiver;
@@ -53,6 +55,14 @@ public class Mail {
 
 	public void setMessages(List<Message> messages) {
 		this.messages = messages;
+	}
+	
+	public void addMessage(Message message) {
+		if(this.messages == null) {
+			this.messages = new ArrayList<Message>();
+		}
+		message.setMail(this);
+		this.messages.add(message);
 	}
 
 	public User getReceiver() {
