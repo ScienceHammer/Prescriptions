@@ -10,7 +10,6 @@ import java.util.Map;
 
 import javax.crypto.spec.SecretKeySpec;
 
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import app.core.models.CustomeUserDetails;
@@ -30,8 +29,7 @@ public class JwtTokenProvider {
 	private String encodedSecretKey = "this+is+my+key+and+it+must+be+at+least+256+bits+long";
 	private Key decodedSecretKey = new SecretKeySpec(Base64.getDecoder().decode(encodedSecretKey), signatureAlgorithm);
 
-	public String generateToken(Authentication authentication) {
-		CustomeUserDetails user = (CustomeUserDetails) authentication.getPrincipal();
+	public String generateToken(CustomeUserDetails user) {
 		Instant now = Instant.now();
 		String userId = Long.toString(user.getId());
 		Map<String, Object> claims = new HashMap<>();

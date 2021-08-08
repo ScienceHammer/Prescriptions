@@ -31,10 +31,11 @@ public class UserAuthService implements UserDetailsService {
 		if (!user.isPresent()) {
 			throw new UsernameNotFoundException("Not Found: " + username);
 		}
+		System.out.println(user.get());
+		System.out.println(new CustomeUserDetails(user.get()));
 		return new CustomeUserDetails(user.get());
 	}
 
-	
 	public User loadUserById(Long id) {
 		Optional<User> user = userRepository.findById(id);
 		if (!user.isPresent()) {
@@ -43,7 +44,7 @@ public class UserAuthService implements UserDetailsService {
 		return user.get();
 
 	}
- 
+
 	public User saveUser(User newUser) {
 		newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
 		return userRepository.save(newUser);

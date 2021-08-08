@@ -35,7 +35,7 @@ public class User {
 	private Doctor doctor;
 	@Column(unique = true)
 	private String email;
-	private String firsName;
+	private String firstName;
 	private String lastName;
 	private Gender gender;
 	private Date birthDay;
@@ -46,6 +46,10 @@ public class User {
 	@OneToMany
 	private List<Mail> mails;
 	private boolean active;
+
+	public User() {
+		this.active = true;
+	}
 
 	public Long getId() {
 		return id;
@@ -135,12 +139,12 @@ public class User {
 		this.doctor = doctor;
 	}
 
-	public String getFirsName() {
-		return firsName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirsName(String firsName) {
-		this.firsName = firsName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
@@ -171,10 +175,11 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", userIdNumber=" + userIdNumber + ", phoneNumber=" + phoneNumber + ", username="
 				+ username + ", password=" + password + ", role=" + role + ", doctor=" + doctor + ", email=" + email
-				+ ", firsName=" + firsName + ", lastName=" + lastName + ", gender=" + gender + ", birthDay=" + birthDay
-				+ ", address=" + address + ", userPrescriptions=" + userPrescriptions + ", active=" + active + "]";
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender + ", birthDay="
+				+ birthDay + ", address=" + address + ", userPrescriptions=" + userPrescriptions + ", mails=" + mails
+				+ ", active=" + active + "]";
 	}
-	
-	
+
+
 
 }

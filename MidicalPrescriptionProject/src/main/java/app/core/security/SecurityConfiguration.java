@@ -18,7 +18,7 @@ import app.core.services.UserAuthService;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private UserAuthService customUserDetailsService;
+	private UserAuthService userAuthService;
 	
 	@Autowired
 	private JwtAuthenticationEntryPiont unathorizedHandler;
@@ -33,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(customUserDetailsService).passwordEncoder(bCryptPasswordEncoder);
+		auth.userDetailsService(userAuthService).passwordEncoder(bCryptPasswordEncoder);
 	}
 	
 	
@@ -41,7 +41,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	@Bean(BeanIds.AUTHENTICATION_MANAGER)
 	protected AuthenticationManager authenticationManager() throws Exception {
-		// TODO Auto-generated method stub
 		return super.authenticationManager();
 	}
 
